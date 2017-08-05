@@ -42,5 +42,5 @@ variaveis_extrair = [
 df = df[variaveis_extrair]
 df = df.rename(index=str, columns={'mda.1': 'mda_cliente'})
 
-df.to_csv(path_or_buf=dir_path + '/out.csv',
+df.to_csv(path_or_buf='data/out.csv',
           sep=';')
