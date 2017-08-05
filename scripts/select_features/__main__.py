@@ -1,14 +1,9 @@
 import pandas as pd
 import os
+import datetime
+
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
-
-
-def preprocess(row):
-    if row.name == 'data_venda':
-        print row.asobject
-    return row
-
-
 df = pd.read_csv(dir_path + '/raw.csv')
 
 variaveis_extrair = [
@@ -46,7 +41,6 @@ variaveis_extrair = [
 
 df = df[variaveis_extrair]
 df = df.rename(index=str, columns={'mda.1': 'mda_cliente'})
-df.apply(preprocess, axis='rows')
 
 df.to_csv(path_or_buf=dir_path + '/out.csv',
           sep=';')
